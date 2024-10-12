@@ -1,0 +1,24 @@
+/* Tailwind directives  */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+// @layer components {
+
+//   .btn-main {
+//     @apply sm:text-base flex justify-center items-center text-sm font-medium rounded-[10px] sm:px-11 px-5  py-[10px] cursor-pointer;
+//   }
+
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     color: #213547;
+//     background-color: #ffffff;
+//   }
+//     // a:hover {
+//     //   color: #747bff;
+//     // }
+//     // button {
+//     //   background-color: #f9f9f9;
+//     // }
+//   }
+
+// }
