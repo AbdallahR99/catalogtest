@@ -14,46 +14,6 @@ import {
 } from '@analogjs/content';
 import { SHARED_MODULES } from 'src/core/shared/modules/shared.module';
 import { Category } from 'src/core/models/repository/category.model';
-// export interface ServiceAttributes {
-//   title: string;
-//   titleEn: string;
-//   slug: string;
-//   slugEn: string;
-//   description: string;
-//   descriptionEn: string;
-//   coverImage: string;
-// }
-// export const routeMeta: RouteMeta = {
-//   // title: 'TEsseest',
-//   meta: catalogRouteMeta,
-// };
-
-// export const postMetaResolver: ResolveFn<MetaTag[]> = (route) => {
-//   const postAttributes = injectActivePostAttributes(route);
-
-//   return [
-//     {
-//       name: 'description',
-//       content: postAttributes.description,
-//     },
-//     {
-//       name: 'author',
-//       content: 'Analog Team',
-//     },
-//     {
-//       property: 'og:title',
-//       content: postAttributes.title,
-//     },
-//     {
-//       property: 'og:description',
-//       content: postAttributes.description,
-//     },
-//     {
-//       property: 'og:image',
-//       content: postAttributes.coverImage,
-//     },
-//   ];
-// };
 
 @Component({
   standalone: true,
@@ -78,7 +38,21 @@ export default class CatalogPage {
     const path = this.catalogPost.filename
       .replace('/src/content/', '')
       .replace('.md', '');
-    this.catalogPost$ = injectContent<Category>({ customFilename: path });
+    /**
+     * Works!
+     */
+    // this.catalogPost$ = injectContent<Category>({
+    //   subdirectory: 'catalog',
+    //   param: 'slug',
+    // });
+
+    /**
+     * Doesn't work!
+     */
+    this.catalogPost$ = injectContent<Category>(
+      { customFilename: path },
+      `No Content Found ${path}`
+    );
     console.log(this.catalogPost$);
     console.log(this.activatedRoute, 'activatedRoute');
   }
